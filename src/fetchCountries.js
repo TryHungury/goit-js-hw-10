@@ -1,8 +1,6 @@
+export { fetchCounties }
 import Notiflix from 'notiflix';
-
-const oneCountryObject = {};
-
-const moreCountryObject = [];
+import { markupMoreCountry, markupOneCountry } from './index.js';
 
 function fetchCounties (name) {
     fetch(`https://restcountries.com/v2/name/${name}?fields=name,capital,languages,population,flags`).then(r => {
@@ -17,10 +15,10 @@ function fetchCounties (name) {
                 notificationInfo();
             } else if (r.length < 2) {  
 
-                markupForOneCounty(r[0])
+                markupOneCountry(r[0])
             } else {
 
-                markupForMoreCounty(r)     
+                markupMoreCountry(r)
             }
         }).catch(error =>{
             if (error) { 
@@ -30,22 +28,6 @@ function fetchCounties (name) {
         })
 }   
 
-function markupForOneCounty(obj) {
-    oneCountryObject.name = obj.name;
-    oneCountryObject.capital = obj.capital;
-    oneCountryObject.population = obj.population;
-    oneCountryObject.languages = [];
-    obj.languages.map((lang)=>{
-        oneCountryObject.languages.push(lang.name)
-    });
-    oneCountryObject.flags = obj.flags.svg;    
-    // console.log(oneCountryObject)   
-}
-
-function markupForMoreCounty(arr) {
-    console.log(arr)   
-}
-
 function notificationInfo() {
     Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
 }
@@ -53,5 +35,3 @@ function notificationInfo() {
 function notificationFailure() {
     Notiflix.Notify.failure('Oops, there is no country with that name')
 }
-
-export { fetchCounties , oneCountryObject, moreCountryObject }

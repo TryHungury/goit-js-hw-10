@@ -32,3 +32,22 @@ body {
   color: azure;
   border-radius: 12px;
 }
+
+.country-name {
+  font-size: 30px;
+}
+
+.country-header {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.country-span {
+  font-weight: 400;
+}
+
+.country-list {
+  font-size: 24px;
+  font-weight: 500;
+  list-style: none;
+}
