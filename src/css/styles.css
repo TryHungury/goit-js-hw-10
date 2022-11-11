@@ -17,4 +17,18 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  border-radius: 4px;
+  background-color: azure;
+  color: #212121;
+  transition: background-color 600ms cubic-bezier(0.4, 0, 0.2, 1),
+  color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+  border-radius 1200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#search-box:hover,
+#search-box:focus
+ {
+  background-color: #212121;
+  color: azure;
+  border-radius: 12px;
 }
